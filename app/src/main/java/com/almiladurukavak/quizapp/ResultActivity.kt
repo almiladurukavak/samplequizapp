@@ -27,7 +27,7 @@ class ResultActivity : AppCompatActivity() {
         scoreText.text="${score}/${totalQuestions}"
         buttonComplete.setOnClickListener{
 
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,SelectCategoryActivity::class.java))
 
         }
 

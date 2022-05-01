@@ -28,9 +28,9 @@ class SelectCategoryActivity : AppCompatActivity() {
         spaceButton.setOnClickListener{
 
 
-            var intent= Intent(this,MainActivity::class.java)
-            intent.putExtra("${localData.category}","space")
-            startActivity(intent)
+            var intent_space= Intent(this,MainActivity::class.java)
+            intent_space.putExtra(localData.category,"space")
+            startActivity(intent_space)
             finish()
 
 
@@ -40,9 +40,9 @@ class SelectCategoryActivity : AppCompatActivity() {
 
 
 
-            var intent= Intent(this,MainActivity::class.java)
-            intent.putExtra("${localData.category}","food")
-            startActivity(intent)
+            var intent_food= Intent(this,MainActivity::class.java)
+            intent_food.putExtra(localData.category,"food")
+            startActivity(intent_food)
             finish()
 
 

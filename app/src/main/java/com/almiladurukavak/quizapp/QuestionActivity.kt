@@ -3,14 +3,18 @@ package com.almiladurukavak.quizapp
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_question.*
 import org.w3c.dom.Text
 
@@ -59,7 +63,7 @@ class QuestionActivity : AppCompatActivity() {
 
         } else if (category == "space") {
 
-            questionList = localData.getFoodQuestion()
+            questionList = localData.getSpaceQuestion()
 
         }
 
@@ -69,20 +73,26 @@ class QuestionActivity : AppCompatActivity() {
 
             selectedOptionStyle(firstOption, 1)
 
+
         }
         secondOption.setOnClickListener {
 
             selectedOptionStyle(secondOption, 2)
+
 
         }
         thirdOption.setOnClickListener {
 
             selectedOptionStyle(thirdOption, 3)
 
+
         }
 
         submitButton.setOnClickListener {
 
+            firstOption.isEnabled=false
+            secondOption.isEnabled=false
+            thirdOption.isEnabled=false
             if (selectedOption != 0) {
 
                 val question = questionList!![currentPosition - 1]
@@ -133,6 +143,7 @@ class QuestionActivity : AppCompatActivity() {
 
         setOptionStyle()
         selectedOption = i
+        submitButton.isEnabled=true
         firstOption.background = ContextCompat.getDrawable(this, R.drawable.selected_question_opt)
         firstOption.typeface = Typeface.DEFAULT_BOLD
         firstOption.setTextColor(Color.parseColor("#000000"))
@@ -140,6 +151,7 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     fun setOptionStyle() {
+
 
         var optionList: ArrayList<TextView> = arrayListOf()
 
@@ -150,36 +162,13 @@ class QuestionActivity : AppCompatActivity() {
             optionList.add(2, thirdOption)
 
 
-        val question = questionList!![currentPosition - 1]
 
         for (opt in optionList) {
 
             opt.setTextColor(Color.parseColor("#424040"))
 
-            if (question.firstOpt!=""){
-                firstOption.background = ContextCompat.getDrawable(applicationContext, R.drawable.default_question_opt)
+            opt.background = ContextCompat.getDrawable(applicationContext, R.drawable.default_question_opt)
 
-            }else{
-
-                firstOption.background = ContextCompat.getDrawable(applicationContext, R.drawable.no_opt_style)
-
-            }
-            if (question.secondOpt!=""){
-                secondOption.background = ContextCompat.getDrawable(applicationContext, R.drawable.default_question_opt)
-
-            }else{
-
-                secondOption.background = ContextCompat.getDrawable(applicationContext, R.drawable.no_opt_style)
-
-            }
-            if (question.thirdOpt!=""){
-                thirdOption.background = ContextCompat.getDrawable(applicationContext, R.drawable.default_question_opt)
-
-            }else{
-
-                thirdOption.background = ContextCompat.getDrawable(applicationContext, R.drawable.no_opt_style)
-
-            }
             opt.typeface = Typeface.DEFAULT
 
 
@@ -212,6 +201,7 @@ class QuestionActivity : AppCompatActivity() {
         val question = questionList!![currentPosition - 1]
 
 
+
         setOptionStyle()
 
         progressBar.progress = currentPosition
@@ -222,6 +212,37 @@ class QuestionActivity : AppCompatActivity() {
         firstOption.text = question.firstOpt
         secondOption.text = question.secondOpt
         thirdOption.text = question.thirdOpt
+
+
+        if (!firstOption.text.isEmpty()||!firstOption.text.equals("")||firstOption.text!=""){
+            firstOption.isEnabled=true
+            firstOption.visibility= VISIBLE
+
+        }else{
+            firstOption.isEnabled=false
+            firstOption.visibility= GONE
+        }
+
+        if (!secondOption.text.isEmpty()||!secondOption.text.equals("")||secondOption.text!=""){
+            secondOption.isEnabled=true
+            secondOption.visibility= VISIBLE
+
+        }else{
+            secondOption.isEnabled=false
+            secondOption.visibility= GONE
+        }
+
+        if (!thirdOption.text.isEmpty()||!thirdOption.text.equals("")||thirdOption.text!=""){
+            thirdOption.isEnabled=true
+            thirdOption.visibility= VISIBLE
+
+        }else{
+            thirdOption.isEnabled=false
+            thirdOption.visibility= GONE
+        }
+        submitButton.isEnabled=false
+
+
 
     }
 

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="?attr/colorPrimaryDark"
     tools:context=".SelectCategoryActivity">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorPrimary"
         android:textStyle="bold"
         android:text="Choose category"/>
 
@@ -21,12 +22,16 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="Space"
+       android:padding="15dp"
+       android:textColor="?colorPrimaryDark"
        android:layout_margin="40dp"
        android:id="@+id/spaceButton"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Food"
+        android:padding="15dp"
+        android:textColor="?colorPrimaryDark"
         android:layout_margin="40dp"
         android:id="@+id/foodButton"/>
 

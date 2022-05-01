@@ -26,12 +26,11 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this,"Enter your username",Toast.LENGTH_SHORT).show()
 
-
             }else{
 
                 var intent= Intent(this,QuestionActivity::class.java)
                 intent.putExtra("${localData.username}",inputUserName.text.toString())
-                intent.putExtra("category",category)
+                intent.putExtra("${localData.category}",category)
                 startActivity(intent)
                 finish()
 

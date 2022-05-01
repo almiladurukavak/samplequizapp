@@ -9,7 +9,7 @@ object localData {
 
     fun getSpaceQuestion():ArrayList<QuestionModel>{
 
-        var queque:ArrayList<QuestionModel> = arrayListOf()
+        var queque_space:ArrayList<QuestionModel> = arrayListOf()
 
 
         var firstQuestion= QuestionModel(
@@ -69,19 +69,19 @@ object localData {
             3
         )
 
-        queque.add(firstQuestion)
-        queque.add(secondQuestion)
-        queque.add(thirdQuestion)
-        queque.add(fourthQuestion)
-        queque.add(fifthQuestion)
-        queque.add(sixthQuestion)
-        return queque
+        queque_space.add(firstQuestion)
+        queque_space.add(secondQuestion)
+        queque_space.add(thirdQuestion)
+        queque_space.add(fourthQuestion)
+        queque_space.add(fifthQuestion)
+        queque_space.add(sixthQuestion)
+        return queque_space
 
 
     }
     fun getFoodQuestion():ArrayList<QuestionModel>{
 
-        var queque:ArrayList<QuestionModel> = arrayListOf()
+        var queque_food:ArrayList<QuestionModel> = arrayListOf()
 
 
         var firstQuestion= QuestionModel(
@@ -128,17 +128,17 @@ object localData {
             5,
             "Can you name the largest chocolate manufacturer in the United States?",
             "Hershey’s",
-            " Willy Wonka",
+            "Willy Wonka",
             "",
             1
         )
 
-        queque.add(firstQuestion)
-        queque.add(secondQuestion)
-        queque.add(thirdQuestion)
-        queque.add(fourthQuestion)
-        queque.add(fifthQuestion)
-        return queque
+        queque_food.add(firstQuestion)
+        queque_food.add(secondQuestion)
+        queque_food.add(thirdQuestion)
+        queque_food.add(fourthQuestion)
+        queque_food.add(fifthQuestion)
+        return queque_food
 
 
     }
